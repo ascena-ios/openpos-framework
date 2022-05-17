@@ -42,4 +42,12 @@ public class ModuleInitStatus {
     public static ModuleInitStatus error(Exception exception) {
         return error(exception.getMessage());
     }
+
+    public boolean isReady() {
+        return status == ModuleInitState.ready;
+    }
+
+    public boolean isNotReady() {
+        return !isReady();
+    }
 }
