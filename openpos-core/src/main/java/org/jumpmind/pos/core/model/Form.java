@@ -285,7 +285,21 @@ public class Form implements Serializable {
         formElements.add(formField);
         return formField;
     }
+	
+    public static FormField createNameField(String fieldId, String label, String value, boolean required) {
+        FormField formField = new FormField(fieldId, label, FieldElementType.Input, FieldInputType.AlphanumericText, required);
+        formField.setPattern(FieldPattern.NAME);
+        formField.setValue(value);
+        return formField;
+    }
     
+    public FormField addNameField(String fieldId, String label, String value, boolean required) {
+        FormField formField = createNameField(fieldId, label, value, required);
+        formField.setValue(value);
+        formElements.add(formField);
+        return formField;
+    }
+	
     public static FormField createPhoneField(String fieldId, String label, String value, boolean required) {
         FormField formField = new FormField(fieldId, label, FieldElementType.Input, FieldInputType.Phone, required);
         formField.setValue(value);
